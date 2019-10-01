@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
       @current_user = nil
     end
   end
+
+  def authorize
+    redirect_to '/login' unless current_user
+  end
 end
