@@ -1,5 +1,4 @@
-class UserController < ApplicationController
-  before_action :authorize
+class UserController < InternalController
 
   def edit
     @user = User.find(params[:id])

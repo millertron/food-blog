@@ -1,5 +1,4 @@
-class HomeController < ApplicationController
-  before_action :authorize
+class HomeController < InternalController
 
   def index
     if current_user.status_registered?
