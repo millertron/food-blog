@@ -15,5 +15,18 @@
   <%= @recipe.image_url %>
 </p>
 
+<p>Steps</p>
+<% @recipe.recipe_steps.each do |step| %>
+<p><%= step.order %></p>
+<div>
+  <p><%= step.text %></p>
+  <p>
+    <% if step.photo.attached? %>
+      <%= image_tag(step.photo.variant(resize: "100x100")) %>
+    <% end %>
+  </p>
+<div>
+<% end %>
+
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
