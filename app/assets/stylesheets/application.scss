@@ -14,4 +14,14 @@
  *= require_self
  */
 
- @import "materialize"
+@import "materialize";
+
+body{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+textarea{
+  resize: none;
+  height: 6em;
+}
