@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :articles
   resources :recipes
   root to: 'home#index'
   resources :sessions, only: [:new, :create, :destroy]

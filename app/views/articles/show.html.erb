@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %> (<%= @article.status %><% if @article.published? %> : <%= @article.published_date %><% end %>)
+</p>
+
+<p>
+  <strong>By:</strong>
+  <%= @article.user.display_name if @article.user %>
+</p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @article.recipe.title if @article.title %>
+</p>
+
+<p>
+  <strong>Abstract:</strong>
+  <%= @article.abstract %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @article.body %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
