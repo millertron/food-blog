@@ -12,11 +12,7 @@
 
 <p>
   <strong>Photo:</strong>
-  <% if @recipe.photo.attached? %>
-    <%= image_tag(@recipe.photo.variant(resize: "200x200")) %>
-  <% else %>
-    No image uploaded
-  <% end %>
+  <%= render partial: 'image_preview', locals: {image: @recipe.photo } %>
 </p>
 
 <p>Steps</p>
@@ -25,9 +21,7 @@
 <div>
   <p><%= step.text %></p>
   <p>
-    <% if step.photo.attached? %>
-      <%= image_tag(step.photo.variant(resize: "200x200")) %>
-    <% end %>
+    <%= render partial: 'image_preview', locals: {image: step.photo} %>
   </p>
 <div>
 <% end %>

@@ -1,0 +1,5 @@
+<% if image.attached? %>
+  <%= image_tag(image.variant(resize: size ||= "200x200")) %>
+<% else %>
+  No image uploaded
+<% end %>

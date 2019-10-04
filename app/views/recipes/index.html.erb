@@ -18,12 +18,8 @@
         <td><%= recipe.title %></td>
         <td><%= recipe.ingredients %></td>
         <td>
-	  <% if recipe.photo.attached? %>
-	    <%= image_tag(recipe.photo.variant(resize: "100x100")) %>
-	  <% else %>
-	    No image uploaded
-	  <% end %>
-        </td>
+          <%= render partial: 'image_preview', locals: { image: recipe.photo } %>
+	</td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
