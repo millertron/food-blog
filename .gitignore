@@ -28,3 +28,5 @@
 
 # Ignore any sqlite databases
 /**/*.sqlite3
+
+\.rake_tasks~
