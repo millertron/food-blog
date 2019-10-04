@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to '/login' unless current_user
   end
+
+  def change_user_password
+    if current_user && current_user.status_registered?
+      redirect_to controller: :user, action: :change_password, id: current_user.id
+    end
+  end
 end

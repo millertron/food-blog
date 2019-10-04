@@ -1,18 +1,30 @@
 class UserController < InternalController
+  skip_before_action :change_user_password, only: [:change_password, :update]
+  before_action :set_user, only: [:show, :edit, :change_password, :update]
+
+  def show
+  end
 
   def edit
-    @user = User.find(params[:id])
+  end
+
+  def change_password
   end
 
   def update
-    @user = User.find(params[:id])
-    if (@user.status_registered?)
+    if (@user.update(user_params) && @user.status_registered?)
       @user.status_active!
-      puts params[:user][:password]
-      @user.password = params[:user][:password]
-      @user.save
     end
     redirect_to root_url
+  end
+
+  private
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:display_name, :password)
   end
 
 end
