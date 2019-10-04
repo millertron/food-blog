@@ -27,11 +27,12 @@
   </div>
 
   <div>
-    <h4>Steps:</h4>
+    <h5>Steps:</h5>
     <% @index = 1 %>
     <%= form.fields_for :recipe_steps do |step_form| %>
-      <div style="display: block;">
-        <div><label><%= @index%></label></div>
+      <div class="step-container">
+        <hr>
+	<label><%= @index%></label>
         <div>
 	  <%= step_form.text_area :text %>
 	  <%= step_form.hidden_field :order, :value => @index %>
@@ -39,6 +40,7 @@
 	</div>
       </div>
       <% @index = @index + 1 %>
+      <br />
     <% end %>
   </div>
 
