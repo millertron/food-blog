@@ -15,7 +15,7 @@ class UserController < InternalController
     if (@user.update(user_params) && @user.status_registered?)
       @user.status_active!
     end
-    redirect_to root_url
+    redirect_to @user, notice: 'Successfully updated user entry.'
   end
 
   private
