@@ -70,6 +70,6 @@ class RecipesController < InternalController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title, :ingredients, :image_url, recipe_steps_attributes: [:id, :text, :photo, :order, :_destroy])
+      params.require(:recipe).permit(:title, :ingredients, :photo, recipe_steps_attributes: [:id, :text, :photo, :order, :_destroy])
     end
 end
