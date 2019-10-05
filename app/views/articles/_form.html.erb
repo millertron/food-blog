@@ -18,7 +18,9 @@
 
   <div class="field">
     <%= form.label :recipe %>
-    <%= form.collection_select(:recipe_id, @recipes, :id, :title, {}, class: 'browser-default') %>
+    <% select_options = { prompt: true } %>
+    <% if @article.recipe then select_options[:selected] = @recipes.index(@article.recipe) end %>
+    <%= form.collection_select(:recipe_id, @recipes, :id, :title, select_options, {class: 'browser-default'}) %>
   </div>
 
   <div class="field">
